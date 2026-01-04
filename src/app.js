@@ -8,9 +8,13 @@ import taskRoutes from './routes/tasks.routes.js';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true // Esto es CRÍTICO
+  origin: [
+    "http://localhost:5173",
+    "https://tasks-app.vercel.app" // luego la ajustamos si cambia
+  ],
+  credentials: true
 }));
+
 
 app.use(morgan('dev'));
 app.use(express.json());
